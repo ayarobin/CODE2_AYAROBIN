@@ -24,7 +24,7 @@ void draw () {
       col [i][j]= color(random(255),random(255),random(255));
       float r = map(size[i][j], 0, mouseX, 0, 100);
       fill(col[i][j]);
-      ellipse(i,j, r,r);
+      //ellipse(i,j, r,r);
     }
   }
 }
