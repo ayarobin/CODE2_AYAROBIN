@@ -6,8 +6,8 @@ class MyObj {
   String text; //string for name
   
   MyObj (int i) {
-    col =
-    pos = 
+    col = color(25,70,35);
+    pos = new PVector(width/2,height/2);
   }
   
   void display () {
