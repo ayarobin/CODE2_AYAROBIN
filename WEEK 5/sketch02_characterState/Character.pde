@@ -10,7 +10,7 @@ class Character {
   Character() {
     w = 120;
     h = 100;
-    baseh = 100;
+    baseh = 85;
     grav = 0.9;
     pos = new PVector(300, floor - baseh/2);
     vel = new PVector(0, 0);
@@ -19,27 +19,39 @@ class Character {
   void display() {
     switch (state) {
       case 0:
-        fill(200, 150, 70);
+        fill(255,170,193);
         break;
       case 1:
-        fill(200, 70, 190);
+        fill(random(255),random(255),random(255));
         break;
       default:
         break;
     }
     
+    
+    
+    
+    //body
     noStroke();
     h += ((baseh + vel.y * 2) - h) * 0.3;
     ellipse(pos.x, pos.y, w, h);
     
+    //eyes
     fill(250);
     noStroke();
     ellipse(pos.x - 5, pos.y - 10, 20, 30);
     ellipse(pos.x + 30, pos.y - 10, 20, 30);
     
+    //pupils
     fill(0);
     ellipse(pos.x - 5, pos.y - 10, 10, 10 + abs(vel.y));
     ellipse(pos.x + 30, pos.y - 10, 10, 10 + abs(vel.y));
+    
+    //hat
+    noStroke();
+    fill(0);
+    rect(pos.x-40,pos.y-115, w-40,h);
+    rect(pos.x-60,pos.y-50, w,h-60);
   }
   
   
