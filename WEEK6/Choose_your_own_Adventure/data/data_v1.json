@@ -1,0 +1,17 @@
+{
+  "descriptions": [
+    "It is dusk time. You are at a beach",
+    "The water feels cold but refreshing on your bare feet",
+    "The turtle is sleeping. You don't want to disturbe it so..."
+  ],
+  "options": [
+    ["Go towards the water", "Go towards the turtle"],
+    ["You get out of the water"],
+    ["go in water instead", "go back"]
+  ],
+  "optionTargets": [
+    [1, 2],
+    [0],
+    [1, 0],
+  ]
+}
