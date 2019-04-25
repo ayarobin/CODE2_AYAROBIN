@@ -1,5 +1,9 @@
 // bryan ma for code 2 sp 19
 
+Rain rain;
+ArrayList <Rain> myRain;
+//Rain[] myRain;
+
 Character c;
 
 float floor;
@@ -11,6 +15,13 @@ void setup() {
   textSize(20);
   textAlign(CENTER);
   //strokeWeight(3);
+  
+  myRain = new ArrayList<Rain>();
+  
+  for(int i=0; i < 500; i++){
+    myRain.add(new Rain(16*i, -10));
+  }
+  //rain = new Rain(0);
 }
 
 void draw() {
@@ -25,8 +36,22 @@ void draw() {
 
   c.update();
   c.display();
+  
+  for(int i=0; i < 50; i++){
+    myRain.add(new Rain(16*i, -10));
+    Rain rains = myRain.get(i);
+    rains.update();
+    rains.display();
+    
+  }
+  
 }
 
 void keyPressed() {
   c.handleInput(key);
+  for(int i = 0; i < 50; i++){
+    Rain rains2 = myRain.get(i);
+    rains2.handleInput(key);
+  }
+  
 }
