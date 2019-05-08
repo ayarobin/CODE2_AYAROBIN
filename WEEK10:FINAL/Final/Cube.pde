@@ -1,11 +1,11 @@
-class Sphere {
+class Cube {
   float x;
   float y;
   float z;
   
   color c;
   
-  Sphere() {
+  Cube() {
     x = random(-2000, 2000);
     y = random(-2000, 2000);
     z = random(0, 2000);
@@ -23,7 +23,7 @@ class Sphere {
     x = random(-2000, 2000);
     y = random(-2000, 2000);
     z = 2000.0; 
-    c = color(random(10,255),random(0,255),random(80,255),random(180,230));
+    c = color(random(180,255),random(180,255),random(180,255),random(180,230));
   }
   
   void draw(float lowMod) {
@@ -43,7 +43,7 @@ class Sphere {
     fill(c);
     stroke(0,230,250);
     strokeWeight(.5);
-    sphere(180);
+    box(180);
     popMatrix();
  
   }

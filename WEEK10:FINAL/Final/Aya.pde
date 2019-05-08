@@ -1,11 +1,11 @@
-class Sphere {
+class Aya {
   float x;
   float y;
   float z;
   
   color c;
   
-  Sphere() {
+  Aya() {
     x = random(-2000, 2000);
     y = random(-2000, 2000);
     z = random(0, 2000);
@@ -23,7 +23,7 @@ class Sphere {
     x = random(-2000, 2000);
     y = random(-2000, 2000);
     z = 2000.0; 
-    c = color(random(10,255),random(0,255),random(80,255),random(180,230));
+    c = color(random(180,255),random(180,255),random(180,255),random(180,230));
   }
   
   void draw(float lowMod) {
@@ -44,6 +44,7 @@ class Sphere {
     stroke(0,230,250);
     strokeWeight(.5);
     sphere(180);
+    sphereDetail(int(map(mouseX, 0, width, 0,10)));
     popMatrix();
  
   }
