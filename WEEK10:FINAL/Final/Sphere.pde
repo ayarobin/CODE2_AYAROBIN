@@ -16,23 +16,23 @@ class Sphere {
     z-=10;        // Move sphere closer to viewport
     if (z <= 0.0) // Reset star if it passes viewport
       reset();
-    
+ 
   }
   
   void reset() {
     x = random(-2000, 2000);
     y = random(-2000, 2000);
     z = 2000.0; 
-    c = color(random(10,255),random(0,255),random(80,255),random(180,230));
+    c = color(255);
+    
   }
   
   void draw(float lowMod) {
-    
     float offsetX = 100.0*(x/z);
     float offsetY = 100.0*(y/z);
     float scaleZ = 0.0001*(2000.0-z);
     
-
+    
     pushMatrix();
     translate(offsetX, offsetY);
     scale(scaleZ * lowMod);
@@ -47,5 +47,5 @@ class Sphere {
     popMatrix();
  
   }
-  
+
 }

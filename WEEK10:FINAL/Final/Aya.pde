@@ -16,7 +16,7 @@ class Aya {
     z-=10;        // Move sphere closer to viewport
     if (z <= 0.0) // Reset star if it passes viewport
       reset();
-    
+  
   }
   
   void reset() {
@@ -32,7 +32,8 @@ class Aya {
     float offsetY = 100.0*(y/z);
     float scaleZ = 0.0001*(2000.0-z);
     
-
+    
+    
     pushMatrix();
     translate(offsetX, offsetY);
     scale(scaleZ * lowMod);
@@ -45,6 +46,8 @@ class Aya {
     strokeWeight(.5);
     sphere(180);
     sphereDetail(int(map(mouseX, 0, width, 0,10)));
+    fill(255);
+    text("press SPACE to change visuals!", 0,0,0);
     popMatrix();
  
   }

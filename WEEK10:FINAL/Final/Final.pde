@@ -6,6 +6,9 @@ Aya [] aya = new Aya [30];
 int state = 1;
 int keypress;
 
+PImage bg;
+PImage giff;
+
 ///FFT_______________________________
 import processing.sound.*;
 // Declare the sound source and FFT analyzer variables
@@ -35,8 +38,8 @@ float barWidth;
 
 void setup () {
   size(1000, 600, P3D);
-
-
+  bg = loadImage("spaceBG.jpg");
+  giff = loadImage("water.gif");
   for (int i = 0; i < sphere.length; i++) {
     sphere[i] = new Sphere();
     cube[i] = new Cube();
@@ -48,6 +51,7 @@ void setup () {
   barWidth = width/float(bands);
 
   // Load and play a soundfile and loop it.
+  //sample = new SoundFile(this, "Oracle.mp3"); //different song
   sample = new SoundFile(this, "codeFinal.mp3");
   sample.loop();
 
@@ -61,7 +65,7 @@ void draw () {
   background(0);
   lights();
   ambientLight(0, 0, 255);
-
+  
   translate(0.5*width, 0.5*height);
 
 
@@ -71,12 +75,9 @@ void draw () {
   fft.analyze();
 
   for (int i = 0; i < bands; i++) {
-
+  
     // Smooth the FFT spectrum data by smoothing factor
     sum[i] += (fft.spectrum[i] - sum[i]) * smoothingFactor;
-
-    // Draw the rectangles, adjust their height using the scale factor
-    rect(i*barWidth, height, barWidth, -sum[i]*height*scale);
   }
   //___________________________
 
@@ -86,18 +87,22 @@ void draw () {
   }
   println(lowSum);
   if(state == 1){
+    background(bg);
     for (int i=0; i<sphere.length; i++) {
       sphere[i].update();
       sphere[i].draw(lowSum);
+      
     }
   }
   if(state == 2){
+    background(255);
     for (int i=0; i<cube.length; i++) {
       cube[i].update();
       cube[i].draw(lowSum);
     }  
   }
   if(state == 3){
+    background(giff);
     for (int i=0; i<aya.length; i++) {
       aya[i].update();
       aya[i].draw(lowSum);
