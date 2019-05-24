@@ -20,7 +20,6 @@ class Rect {
     noStroke();
     fill(map(angle, 0, 360, 0, 255));
     rotate(radians(angle));
-    
     rect(0, 0, 100, 20);
   }
   
